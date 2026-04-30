@@ -1,3 +1,5 @@
+import { asset } from "@/lib/asset";
+
 export interface ExperienceEntry {
   co: string;
   logo: string;
@@ -13,7 +15,7 @@ export interface ExperienceEntry {
 export const EXPERIENCE: ExperienceEntry[] = [
   {
     co: "Arm",
-    logo: "/assets/logo-arm.png",
+    logo: asset("/assets/logo-arm.png"),
     role: "Senior GenAI Engineer",
     when: "Sep 2025 — Present",
     loc: "Austin, TX",
@@ -38,7 +40,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     co: "State Street",
-    logo: "/assets/logo-statestreet.png",
+    logo: asset("/assets/logo-statestreet.png"),
     role: "AI Development & Platform Engineer",
     when: "Aug 2024 — Sep 2025",
     loc: "Boston, MA",
@@ -62,7 +64,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     co: "FIS Global",
-    logo: "/assets/logo-fis.png",
+    logo: asset("/assets/logo-fis.png"),
     role: "Machine Learning Engineer",
     when: "Jun 2022 — Jul 2023",
     loc: "India",
@@ -84,7 +86,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     co: "enGen Global",
-    logo: "/assets/logo-engen.png",
+    logo: asset("/assets/logo-engen.png"),
     role: "Data Engineer",
     when: "Aug 2019 — May 2022",
     loc: "India",
@@ -106,7 +108,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     co: "Meesho",
-    logo: "/assets/logo-meesho.png",
+    logo: asset("/assets/logo-meesho.png"),
     role: "Associate Data Engineer",
     when: "Jun 2017 — Aug 2019",
     loc: "India",
@@ -127,9 +129,9 @@ export const EXPERIENCE: ExperienceEntry[] = [
 ];
 
 export const LOGO_MARQUEE = [
-  { name: "Arm", src: "/assets/logo-arm.png" },
-  { name: "State Street", src: "/assets/logo-statestreet.png" },
-  { name: "FIS Global", src: "/assets/logo-fis.png" },
-  { name: "enGen Global", src: "/assets/logo-engen.png" },
-  { name: "Meesho", src: "/assets/logo-meesho.png" },
+  { name: "Arm", src: asset("/assets/logo-arm.png") },
+  { name: "State Street", src: asset("/assets/logo-statestreet.png") },
+  { name: "FIS Global", src: asset("/assets/logo-fis.png") },
+  { name: "enGen Global", src: asset("/assets/logo-engen.png") },
+  { name: "Meesho", src: asset("/assets/logo-meesho.png") },
 ];
