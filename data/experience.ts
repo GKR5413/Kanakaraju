@@ -13,7 +13,7 @@ export interface ExperienceEntry {
 export const EXPERIENCE: ExperienceEntry[] = [
   {
     co: "Arm",
-    logo: "/Kanakaraju/assets/logo-arm.png",
+    logo: "/assets/logo-arm.png",
     role: "Senior GenAI Engineer",
     when: "Sep 2025 — Present",
     loc: "Austin, TX",
@@ -38,7 +38,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     co: "State Street",
-    logo: "/Kanakaraju/assets/logo-statestreet.png",
+    logo: "/assets/logo-statestreet.png",
     role: "AI Development & Platform Engineer",
     when: "Aug 2024 — Sep 2025",
     loc: "Boston, MA",
@@ -62,7 +62,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     co: "FIS Global",
-    logo: "/Kanakaraju/assets/logo-fis.png",
+    logo: "/assets/logo-fis.png",
     role: "Machine Learning Engineer",
     when: "Jun 2022 — Jul 2023",
     loc: "India",
@@ -84,7 +84,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     co: "enGen Global",
-    logo: "/Kanakaraju/assets/logo-engen.png",
+    logo: "/assets/logo-engen.png",
     role: "Data Engineer",
     when: "Aug 2019 — May 2022",
     loc: "India",
@@ -106,7 +106,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     co: "Meesho",
-    logo: "/Kanakaraju/assets/logo-meesho.png",
+    logo: "/assets/logo-meesho.png",
     role: "Associate Data Engineer",
     when: "Jun 2017 — Aug 2019",
     loc: "India",
@@ -127,9 +127,9 @@ export const EXPERIENCE: ExperienceEntry[] = [
 ];
 
 export const LOGO_MARQUEE = [
-  { name: "Arm", src: "/Kanakaraju/assets/logo-arm.png" },
-  { name: "State Street", src: "/Kanakaraju/assets/logo-statestreet.png" },
-  { name: "FIS Global", src: "/Kanakaraju/assets/logo-fis.png" },
-  { name: "enGen Global", src: "/Kanakaraju/assets/logo-engen.png" },
-  { name: "Meesho", src: "/Kanakaraju/assets/logo-meesho.png" },
+  { name: "Arm", src: "/assets/logo-arm.png" },
+  { name: "State Street", src: "/assets/logo-statestreet.png" },
+  { name: "FIS Global", src: "/assets/logo-fis.png" },
+  { name: "enGen Global", src: "/assets/logo-engen.png" },
+  { name: "Meesho", src: "/assets/logo-meesho.png" },
 ];

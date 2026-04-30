@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { TECH_MARQUEE } from '@/data/skills';
 import { LOGO_MARQUEE } from '@/data/experience';
@@ -37,69 +36,7 @@ function SplitChars({ text, italic, startDelay }: { text: string; italic: boolea
 }
 
 export default function Hero() {
-  const logoTrackRef = useRef<HTMLDivElement>(null);
-  const techTrackRef = useRef<HTMLDivElement>(null);
   const shouldReduce = useReducedMotion();
-
-  useEffect(() => {
-    if (shouldReduce) return;
-
-    // Tech marquee
-    const techTrack = techTrackRef.current;
-    if (techTrack) {
-      let x = 0;
-      const width = techTrack.scrollWidth / 2;
-      const speed = width / 42000; // pixels per ms (42s for one loop)
-      let lastTime: number | null = null;
-      let rafId: number;
-      const animate = (time: number) => {
-        if (lastTime !== null) {
-          x -= speed * (time - lastTime);
-          if (x <= -width) x += width;
-          techTrack.style.transform = `translateX(${x}px)`;
-        }
-        lastTime = time;
-        rafId = requestAnimationFrame(animate);
-      };
-      rafId = requestAnimationFrame(animate);
-      return () => cancelAnimationFrame(rafId);
-    }
-  }, [shouldReduce]);
-
-  useEffect(() => {
-    if (shouldReduce) return;
-    const logoTrack = logoTrackRef.current;
-    if (!logoTrack) return;
-
-    let x = 0;
-    let paused = false;
-    const width = logoTrack.scrollWidth / 3;
-    const speed = width / 28000;
-    let lastTime: number | null = null;
-    let rafId: number;
-
-    const animate = (time: number) => {
-      if (!paused && lastTime !== null) {
-        x -= speed * (time - lastTime);
-        if (x <= -width) x += width;
-        logoTrack.style.transform = `translateX(${x}px)`;
-      }
-      lastTime = time;
-      rafId = requestAnimationFrame(animate);
-    };
-    rafId = requestAnimationFrame(animate);
-
-    const onEnter = () => { paused = true; };
-    const onLeave = () => { paused = false; };
-    logoTrack.addEventListener('mouseenter', onEnter);
-    logoTrack.addEventListener('mouseleave', onLeave);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      logoTrack.removeEventListener('mouseenter', onEnter);
-      logoTrack.removeEventListener('mouseleave', onLeave);
-    };
-  }, [shouldReduce]);
 
   const metaChips = [
     { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: 10, height: 10 }}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>, label: '~8 years experience' },
@@ -158,10 +95,7 @@ export default function Hero() {
                         fontFamily: '"Fraunces", Georgia, serif',
                         fontStyle: 'italic',
                         fontWeight: 400,
-                        background: 'linear-gradient(105deg, var(--primary) 0%, var(--tertiary) 60%, var(--accent-warm) 100%)',
-                        WebkitBackgroundClip: 'text',
-                        backgroundClip: 'text',
-                        color: 'transparent',
+                        color: 'var(--primary)',
                         paddingRight: '0.1em',
                         letterSpacing: '-0.02em',
                       }}
@@ -274,7 +208,7 @@ export default function Hero() {
         >
           <span style={{ content: '', position: 'absolute', top: 0, bottom: 0, left: 0, width: 120, zIndex: 2, background: 'linear-gradient(to right, var(--bg), transparent)', pointerEvents: 'none' }} />
           <span style={{ content: '', position: 'absolute', top: 0, bottom: 0, right: 0, width: 120, zIndex: 2, background: 'linear-gradient(to left, var(--bg), transparent)', pointerEvents: 'none' }} />
-          <div ref={techTrackRef} style={{ display: 'flex', gap: 48, width: 'max-content', willChange: 'transform' }}>
+          <div className="marquee-track" style={{ gap: 48, animationDuration: '42s' }}>
             {[...TECH_MARQUEE, ...TECH_MARQUEE].map((t, i) => (
               <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, color: 'var(--ink-muted)', fontSize: 15, whiteSpace: 'nowrap' }}>
                 <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--primary)', flexShrink: 0 }} />
@@ -295,8 +229,8 @@ export default function Hero() {
           <span style={{ display: 'block', textAlign: 'center', color: 'var(--ink-faint)', fontFamily: 'var(--font-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.18em', marginBottom: 18 }}>
             Trusted across regulated enterprise — past &amp; present
           </span>
-          <div ref={logoTrackRef} style={{ display: 'flex', gap: 72, width: 'max-content', alignItems: 'center', willChange: 'transform' }}>
-            {[...LOGO_MARQUEE, ...LOGO_MARQUEE, ...LOGO_MARQUEE].map((l, i) => (
+          <div className="marquee-track marquee-track--paused-on-hover" style={{ gap: 72, alignItems: 'center', animationDuration: '28s' }}>
+            {[...LOGO_MARQUEE, ...LOGO_MARQUEE].map((l, i) => (
               <span
                 key={i}
                 title={l.name}

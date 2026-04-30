@@ -145,3 +145,22 @@ a { color: inherit; text-decoration: none; }
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
+
+@keyframes marqueeX {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeX linear infinite;
+}
+
+.marquee-track--paused-on-hover:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+

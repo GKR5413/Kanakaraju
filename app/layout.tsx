@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 import {
   Bricolage_Grotesque,
   Fraunces,
@@ -7,20 +6,19 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import "./globals.css";
-import LenisProvider from "@/components/LenisProvider";
 import ScrollProgress from "@/components/ScrollProgress";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-bricolage",
+  axes: ["opsz"],
 });
 
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
+  axes: ["opsz", "SOFT", "WONK"],
   style: ["normal", "italic"],
-  weight: "400",
-  display: "swap",
 });
 
 const inter = Inter({
@@ -44,13 +42,13 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: ReactNode;
+  children: React.ReactNode;
 }>) {
   return (
     <html
       lang="en"
-      suppressHydrationWarning
       className={`${bricolage.variable} ${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
     >
       <head>
         <script
@@ -69,10 +67,8 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <LenisProvider>
-          <ScrollProgress />
-          {children}
-        </LenisProvider>
+        <ScrollProgress />
+        {children}
       </body>
     </html>
   );

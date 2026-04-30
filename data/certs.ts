@@ -16,21 +16,21 @@ export interface EducationEntry {
 export const CERTS: CertEntry[] = [
   {
     code: "AIP-C01",
-    img: "/Kanakaraju/assets/cert-aws-genai.png",
+    img: "/assets/cert-aws-genai.png",
     alt: "AWS Certified Generative AI Developer badge",
     title: "AWS Certified\nGenerative AI Developer",
     issuer: "Amazon Web Services",
   },
   {
     code: "AI-103",
-    img: "/Kanakaraju/assets/cert-azure-ai.png",
+    img: "/assets/cert-azure-ai.png",
     alt: "Microsoft Certified Azure AI Engineer badge",
     title: "Microsoft Certified\nAzure AI Apps & Agents Developer Associate",
     issuer: "Microsoft",
   },
   {
     code: "MLA-C01",
-    img: "/Kanakaraju/assets/cert-aws-ml.png",
+    img: "/assets/cert-aws-ml.png",
     alt: "AWS Certified Machine Learning Engineer Associate badge",
     title: "AWS Certified\nMachine Learning Engineer Associate",
     issuer: "Amazon Web Services",
