@@ -154,7 +154,6 @@ export default function Hero() {
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             {[
               { label: 'Explore work', href: '#work', ghost: false },
-              { label: 'Download résumé', href: '#contact', ghost: true },
             ].map((btn, i) => (
               <motion.a
                 key={i}
@@ -204,10 +203,12 @@ export default function Hero() {
             borderBottom: '1px solid var(--line)',
             overflow: 'hidden',
             position: 'relative',
+            WebkitMaskImage:
+              'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 6%, #000 18%, #000 82%, rgba(0,0,0,0.6) 94%, transparent 100%)',
+            maskImage:
+              'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 6%, #000 18%, #000 82%, rgba(0,0,0,0.6) 94%, transparent 100%)',
           }}
         >
-          <span style={{ content: '', position: 'absolute', top: 0, bottom: 0, left: 0, width: 120, zIndex: 2, background: 'linear-gradient(to right, var(--bg), transparent)', pointerEvents: 'none' }} />
-          <span style={{ content: '', position: 'absolute', top: 0, bottom: 0, right: 0, width: 120, zIndex: 2, background: 'linear-gradient(to left, var(--bg), transparent)', pointerEvents: 'none' }} />
           <div className="marquee-track" style={{ gap: 48, animationDuration: '42s' }}>
             {[...TECH_MARQUEE, ...TECH_MARQUEE].map((t, i) => (
               <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, color: 'var(--ink-muted)', fontSize: 15, whiteSpace: 'nowrap' }}>
@@ -222,14 +223,21 @@ export default function Hero() {
           initial={shouldReduce ? false : { y: 18, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.52 }}
-          style={{ marginTop: 14, padding: '28px 0', overflow: 'hidden', position: 'relative' }}
+          style={{ marginTop: 14, padding: '28px 0', position: 'relative' }}
         >
-          <span style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: 160, zIndex: 2, background: 'linear-gradient(to right, var(--bg), transparent)', pointerEvents: 'none' }} />
-          <span style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: 160, zIndex: 2, background: 'linear-gradient(to left, var(--bg), transparent)', pointerEvents: 'none' }} />
           <span style={{ display: 'block', textAlign: 'center', color: 'var(--ink-faint)', fontFamily: 'var(--font-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.18em', marginBottom: 18 }}>
             Trusted across regulated enterprise — past &amp; present
           </span>
-          <div className="marquee-track marquee-track--paused-on-hover" style={{ gap: 72, alignItems: 'center', animationDuration: '28s' }}>
+          <div
+            style={{
+              overflow: 'hidden',
+              WebkitMaskImage:
+                'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 5%, #000 16%, #000 84%, rgba(0,0,0,0.55) 95%, transparent 100%)',
+              maskImage:
+                'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.55) 5%, #000 16%, #000 84%, rgba(0,0,0,0.55) 95%, transparent 100%)',
+            }}
+          >
+            <div className="marquee-track marquee-track--paused-on-hover" style={{ gap: 72, alignItems: 'center', animationDuration: '28s' }}>
             {[...LOGO_MARQUEE, ...LOGO_MARQUEE].map((l, i) => (
               <span
                 key={i}
@@ -248,6 +256,7 @@ export default function Hero() {
                 />
               </span>
             ))}
+            </div>
           </div>
         </motion.div>
       </div>
