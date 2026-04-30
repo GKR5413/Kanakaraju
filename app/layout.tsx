@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import {
   Bricolage_Grotesque,
   Fraunces,
@@ -18,7 +19,6 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
   style: ["normal", "italic"],
-  weight: ["400", "500"],
 });
 
 const inter = Inter({
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html
