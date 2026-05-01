@@ -66,11 +66,11 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var saved = localStorage.getItem('theme');
-                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  var theme = saved || (prefersDark ? 'dark' : 'light');
+                  var theme = localStorage.getItem('theme') || 'dark';
                   document.documentElement.setAttribute('data-theme', theme);
-                } catch(e) {}
+                } catch(e) {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                }
               })();
             `,
           }}
