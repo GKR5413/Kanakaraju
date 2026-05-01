@@ -12,6 +12,7 @@ export default function Skills() {
   const [expanded, setExpanded] = useState(false);
   const shouldReduce = useReducedMotion();
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const mounted = useRef(false);
 
   const active = SKILLS[activeIdx];
 
@@ -24,8 +25,10 @@ export default function Skills() {
     return () => clearTimeout(t);
   }, [isPlaying, expanded, activeIdx, shouldReduce]);
 
-  // Scroll active tab into view (mobile horizontal list)
+  // Scroll active tab into view on mobile — skip the very first render
+  // so the page doesn't jump to the skills section on load
   useEffect(() => {
+    if (!mounted.current) { mounted.current = true; return; }
     tabRefs.current[activeIdx]?.scrollIntoView({
       block: 'nearest',
       inline: 'center',
