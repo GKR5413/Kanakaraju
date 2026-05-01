@@ -164,6 +164,11 @@ a { color: inherit; text-decoration: none; }
   .marquee-track { animation: none; }
 }
 
+@keyframes tabProgress {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
 /* ─── Cross-browser & mobile compatibility ─── */
 
 /* Tap highlight + touch optimization for all browsers */
