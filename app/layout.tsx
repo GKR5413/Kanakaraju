@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Bricolage_Grotesque,
   Fraunces,
@@ -32,6 +32,16 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
   weight: ["400", "500"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f5efe6" },
+    { media: "(prefers-color-scheme: dark)", color: "#1e1913" },
+  ],
+};
 
 export const metadata: Metadata = {
   title: "Kanakaraju G — Senior GenAI Engineer",

@@ -116,11 +116,8 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.5, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '80px 1fr auto',
-                alignItems: 'center',
-                gap: 28,
+              className="contact-row-grid"
+            style={{
                 padding: '28px 8px',
                 borderBottom: '1px solid var(--line)',
                 textDecoration: 'none',

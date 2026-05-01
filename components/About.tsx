@@ -97,7 +97,7 @@ export default function About() {
 
         <div
           ref={gridRef}
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: 16 }}
+          className="about-grid"
         >
           {/* Card 1 */}
           <motion.div
@@ -105,8 +105,8 @@ export default function About() {
             variants={cardVariants}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
+            className="about-span-7"
             style={{
-              gridColumn: 'span 7',
               background: 'var(--surface)',
               border: '1px solid var(--line)',
               padding: 28,
@@ -114,7 +114,6 @@ export default function About() {
               overflow: 'hidden',
               boxShadow: 'var(--shadow-1)',
               borderRadius: 'var(--r-l) var(--r-l) var(--r-s) var(--r-l)',
-              minHeight: 380,
             }}
           >
             <span className="mono" style={{ color: 'var(--ink-faint)' }}>Philosophy</span>
@@ -124,7 +123,7 @@ export default function About() {
             <p style={{ color: 'color-mix(in oklab, currentColor 75%, transparent)', fontSize: 15 }}>
               My work centers on the unglamorous layer between a model and a user — retrieval, observability, safety rails, and deployment. I architect Model Context Protocol servers, LangGraph multi-agent workflows, and RAG pipelines that survive contact with auditors.
             </p>
-            <div style={{ marginTop: 24, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
+            <div className="about-counters">
               <AnimatedCounter target={85} suffix="%" label="Fewer hallucinations" />
               <AnimatedCounter target={99.6} suffix="%" label="Exception capture" />
               <AnimatedCounter target={100} suffix="%" label="Compliant traffic" />
@@ -137,8 +136,8 @@ export default function About() {
             variants={cardVariants}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
+            className="about-span-5"
             style={{
-              gridColumn: 'span 5',
               background: 'var(--ink)',
               color: 'var(--bg)',
               border: '1px solid var(--line)',
@@ -164,8 +163,8 @@ export default function About() {
             variants={cardVariants}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
+            className="about-span-4"
             style={{
-              gridColumn: 'span 4',
               background: 'var(--surface)',
               border: '1px solid var(--line)',
               padding: 28,
@@ -193,8 +192,8 @@ export default function About() {
             variants={cardVariants}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
+            className="about-span-4"
             style={{
-              gridColumn: 'span 4',
               background: 'var(--surface-2)',
               border: '1px solid var(--line)',
               padding: 28,
@@ -217,8 +216,8 @@ export default function About() {
             variants={cardVariants}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
+            className="about-span-4"
             style={{
-              gridColumn: 'span 4',
               background: 'var(--surface)',
               border: '1px solid var(--line)',
               padding: 28,

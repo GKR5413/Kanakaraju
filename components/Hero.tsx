@@ -49,7 +49,7 @@ export default function Hero() {
 
   return (
     <header style={{ position: 'relative', padding: '56px 0 40px', overflow: 'hidden' }}>
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.15fr 0.85fr', gap: 48, alignItems: 'center' }}>
+      <div className="container hero-grid">
         <div>
           {/* Eyebrow */}
           <motion.div
@@ -187,7 +187,7 @@ export default function Hero() {
         </div>
 
         {/* Right visual placeholder — empty as in original */}
-        <div />
+        <div className="hero-grid-right" />
       </div>
 
       {/* Marquees */}

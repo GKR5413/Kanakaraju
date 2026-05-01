@@ -104,7 +104,7 @@ export default function Nav() {
             </svg>
             <span style={{ position: 'relative', zIndex: 1, color: 'var(--bg)' }}>K</span>
           </span>
-          <span>Kanakaraju G</span>
+          <span className="nav-brand-name">Kanakaraju G</span>
         </div>
 
         {/* Links */}

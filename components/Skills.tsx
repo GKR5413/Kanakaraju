@@ -41,13 +41,14 @@ export default function Skills() {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: 40 }}>
+        <div className="skills-layout">
           {/* Tab list */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, position: 'sticky', top: 100, alignSelf: 'start' }}>
+          <div className="skills-tab-list">
             {SKILLS.map((s, i) => (
               <button
                 key={s.key}
                 onClick={() => setActiveIdx(i)}
+                className="skills-tab-btn"
                 style={{
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -64,7 +65,6 @@ export default function Skills() {
                   textAlign: 'left',
                   letterSpacing: '-0.01em',
                   transition: 'background 0.14s ease, color 0.14s ease, border-radius 0.14s ease',
-                  width: '100%',
                 }}
               >
                 <span>

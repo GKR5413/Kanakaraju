@@ -34,7 +34,7 @@ export default function Credentials() {
         </div>
 
         {/* Cert cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+        <div className="certs-grid">
           {CERTS.map((cert, i) => (
             <motion.div
               key={cert.code}
@@ -83,16 +83,13 @@ export default function Credentials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="edu-card"
           style={{
             marginTop: 32,
             padding: 36,
             background: 'var(--surface)',
             border: '1px solid var(--line)',
             borderRadius: 'var(--r-l) var(--r-s) var(--r-l) var(--r-l)',
-            display: 'grid',
-            gridTemplateColumns: '1fr auto',
-            gap: 24,
-            alignItems: 'center',
             boxShadow: 'var(--shadow-1)',
           }}
         >
@@ -103,7 +100,7 @@ export default function Credentials() {
             </div>
             <div style={{ color: 'var(--ink-muted)', marginTop: 4 }}>{EDUCATION.institution}</div>
           </div>
-          <div style={{ textAlign: 'right' }}>
+          <div className="edu-gpa">
             <div className="mono" style={{ color: 'var(--ink-faint)' }}>GPA</div>
             <div style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 64, color: 'var(--ink)', lineHeight: 1, letterSpacing: '-0.04em' }}>
               {EDUCATION.gpa}

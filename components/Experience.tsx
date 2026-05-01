@@ -17,22 +17,16 @@ function ExperienceItem({ entry, index }: { entry: typeof EXPERIENCE[0]; index: 
   return (
     <article
       ref={ref}
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '200px 1fr',
-        gap: 40,
-        padding: '48px 0',
-        borderTop: '1px solid var(--line)',
-      }}
+      className="experience-row"
     >
       {/* Left col */}
       <motion.div
         initial={shouldReduce ? false : { opacity: 0, x: -32 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-        style={{ color: 'var(--ink-faint)', fontSize: 14, display: 'flex', flexDirection: 'column', gap: 6, position: 'sticky', top: 100, alignSelf: 'start' }}
+        className="experience-left-col"
       >
-        <div style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 56, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 0.9, marginBottom: 12 }}>
+        <div className="experience-number">
           0{index + 1}
         </div>
         <div className="mono">{entry.when}</div>
