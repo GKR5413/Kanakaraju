@@ -12,7 +12,7 @@ export default function Skills() {
   const [expanded, setExpanded] = useState(false);
   const shouldReduce = useReducedMotion();
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const mounted = useRef(false);
+  const tabListRef = useRef<HTMLDivElement>(null);
 
   const active = SKILLS[activeIdx];
 
@@ -25,15 +25,14 @@ export default function Skills() {
     return () => clearTimeout(t);
   }, [isPlaying, expanded, activeIdx, shouldReduce]);
 
-  // Scroll active tab into view on mobile — skip the very first render
-  // so the page doesn't jump to the skills section on load
+  // Scroll the tab-list container horizontally to keep the active tab visible
+  // on mobile. Never calls scrollIntoView which would move the whole page.
   useEffect(() => {
-    if (!mounted.current) { mounted.current = true; return; }
-    tabRefs.current[activeIdx]?.scrollIntoView({
-      block: 'nearest',
-      inline: 'center',
-      behavior: 'smooth',
-    });
+    const container = tabListRef.current;
+    const btn = tabRefs.current[activeIdx];
+    if (!container || !btn) return;
+    const target = btn.offsetLeft - container.clientWidth / 2 + btn.offsetWidth / 2;
+    container.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
   }, [activeIdx]);
 
   const handleTabClick = (i: number) => {
@@ -90,7 +89,7 @@ export default function Skills() {
           <div className="skills-layout">
 
             {/* Tab list */}
-            <div className="skills-tab-list">
+            <div className="skills-tab-list" ref={tabListRef}>
               {SKILLS.map((s, i) => (
                 <button
                   key={s.key}
