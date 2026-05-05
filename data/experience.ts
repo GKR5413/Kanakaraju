@@ -65,7 +65,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   {
     co: "FIS Global",
     logo: asset("/assets/logo-fis.png"),
-    role: "Machine Learning Engineer",
+    role: "Machine Learning Engineer II",
     when: "Jun 2022 — Jul 2023",
     loc: "India",
     project: "FraudSight for WorldPay",
@@ -87,7 +87,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   {
     co: "enGen Global",
     logo: asset("/assets/logo-engen.png"),
-    role: "Data Engineer",
+    role: "Machine Learning Engineer",
     when: "Aug 2019 — May 2022",
     loc: "India",
     project: "Enterprise Health Solution Platform",
