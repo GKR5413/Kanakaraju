@@ -211,7 +211,7 @@ export default function Skills() {
                         style={{
                           padding: '10px 18px',
                           borderRadius: 999,
-                          background: item.f ? 'var(--surface-3)' : 'var(--surface-2)',
+                          background: 'var(--surface-2)',
                           border: '1px solid var(--line)',
                           fontSize: 14,
                           fontWeight: 500,
@@ -219,14 +219,12 @@ export default function Skills() {
                           cursor: 'default',
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: item.f ? 10 : 0,
-                          paddingLeft: item.f ? 22 : 18,
+                          gap: 10,
+                          paddingLeft: 22,
                           position: 'relative',
                         }}
                       >
-                        {item.f && (
-                          <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--primary)', flexShrink: 0, boxShadow: '0 0 8px var(--primary)' }} />
-                        )}
+                        <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--primary)', flexShrink: 0, boxShadow: '0 0 8px var(--primary)' }} />
                         {item.t}
                       </motion.span>
                     ))}
@@ -282,17 +280,17 @@ export default function Skills() {
                         style={{
                           padding: '5px 12px',
                           borderRadius: 999,
-                          background: item.f ? 'var(--primary-soft)' : 'var(--surface)',
-                          border: `1px solid ${item.f ? 'color-mix(in oklab, var(--primary) 30%, transparent)' : 'var(--line)'}`,
+                          background: 'var(--surface)',
+                          border: '1px solid var(--line)',
                           fontSize: 12.5,
-                          fontWeight: item.f ? 600 : 400,
-                          color: item.f ? 'var(--primary)' : 'var(--ink-muted)',
+                          fontWeight: 400,
+                          color: 'var(--ink-muted)',
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: 5,
                         }}
                       >
-                        {item.f && <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--primary)', flexShrink: 0 }} />}
+                        <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--primary)', flexShrink: 0 }} />
                         {item.t}
                       </span>
                     ))}
