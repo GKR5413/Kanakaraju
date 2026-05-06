@@ -30,7 +30,13 @@ for (const file of jsFiles) {
     splitStringsChunkLength: 5,
     controlFlowFlattening: false,
     deadCodeInjection: false,
-    selfDefending: false,
+    // breaks code when DevTools formats/beautifies it
+    selfDefending: true,
+    // infinite loop activates when debugger is open
+    debugProtection: true,
+    debugProtectionInterval: 4000,
+    // code refuses to run outside this domain
+    domainLock: ["rajugottumukkala.com", "www.rajugottumukkala.com"],
     disableConsoleOutput: false,
   });
   await writeFile(filePath, result.getObfuscatedCode());
