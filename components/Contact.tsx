@@ -5,8 +5,8 @@ import { motion, useReducedMotion } from 'framer-motion';
 const CONTACT_METHODS = [
   {
     label: 'Email',
-    val: 'krgpnf@gmail.com',
-    href: 'mailto:krgpnf@gmail.com',
+    val: 'rajugottumukkala96@gmail.com',
+    href: 'mailto:rajugottumukkala96@gmail.com',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 16, height: 16 }}>
         <rect x="2" y="4" width="20" height="16" rx="3" />
