@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
+/** Keep in sync with --theme-swap in globals.css. */
+const THEME_SWAP_MS = 260;
+
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#work' },
@@ -18,6 +21,10 @@ export default function Nav() {
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const navLinksRef = useRef<HTMLDivElement>(null);
   const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 });
+  const themeTimer = useRef<number | undefined>(undefined);
+
+  // Don't leave the global transition class behind if we unmount mid-swap.
+  useEffect(() => () => window.clearTimeout(themeTimer.current), []);
 
   useEffect(() => {
     const saved = localStorage.getItem('theme') ?? 'light';
@@ -27,7 +34,18 @@ export default function Nav() {
 
   const toggleTheme = () => {
     const next = isDark ? 'light' : 'dark';
-    document.documentElement.dataset.theme = next;
+    const root = document.documentElement;
+
+    // Arm one shared transition so every element crosses over on the same
+    // clock, then drop it so it never interferes with hover or scroll states.
+    root.classList.add('theme-transition');
+    void root.offsetWidth; // flush the class before the colors change
+    window.clearTimeout(themeTimer.current);
+    themeTimer.current = window.setTimeout(() => {
+      root.classList.remove('theme-transition');
+    }, THEME_SWAP_MS);
+
+    root.dataset.theme = next;
     localStorage.setItem('theme', next);
     setIsDark(!isDark);
   };

@@ -77,7 +77,6 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
-  transition: background .8s var(--ease-out), color .8s var(--ease-out);
 }
 
 body::before {
@@ -516,4 +515,43 @@ html { scroll-behavior: smooth; }
 @media (max-width: 719px) {
   .skills-row { grid-template-columns: 1fr; gap: 12px; padding: 20px 0; }
   .skills-search { max-width: none; }
+}
+
+/* ─── Theme switching ───
+   Colors live in custom properties, so flipping data-theme repaints every
+   element at once. The problem was that each element reached its new color on
+   its own clock: body faded over .8s, chips over .25s, links over .35s, and
+   roughly twenty surfaces had no transition at all and snapped instantly — so
+   the page changed in visible waves.
+
+   This class is applied only for the duration of a toggle and forces one
+   identical transition onto everything, so the whole page crosses over
+   together. Only color-ish properties are listed: transitioning transform or
+   opacity here would fight the nav knob and the framer-motion animations. */
+
+:root { --theme-swap: 260ms; }
+
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color var(--theme-swap) var(--ease-out),
+    background-image  var(--theme-swap) var(--ease-out),
+    border-color      var(--theme-swap) var(--ease-out),
+    color             var(--theme-swap) var(--ease-out),
+    fill              var(--theme-swap) var(--ease-out),
+    stroke            var(--theme-swap) var(--ease-out),
+    box-shadow        var(--theme-swap) var(--ease-out),
+    outline-color     var(--theme-swap) var(--ease-out) !important;
+  transition-delay: 0s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition: none !important;
+  }
 }
