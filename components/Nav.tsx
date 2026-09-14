@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
-  { label: 'Craft', href: '#skills' },
   { label: 'Experience', href: '#work' },
+  { label: 'Craft', href: '#skills' },
   { label: 'Credentials', href: '#certs' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -20,11 +20,9 @@ export default function Nav() {
   const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 });
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = saved ?? (prefersDark ? 'dark' : 'light');
-    document.documentElement.dataset.theme = theme;
-    setIsDark(theme === 'dark');
+    const saved = localStorage.getItem('theme') ?? 'light';
+    document.documentElement.dataset.theme = saved;
+    if (saved === 'dark') setIsDark(true);
   }, []);
 
   const toggleTheme = () => {
@@ -53,7 +51,7 @@ export default function Nav() {
   }, [hoveredIdx, activeIdx]);
 
   useEffect(() => {
-    const sectionIds = ['about', 'skills', 'work', 'certs', 'contact'];
+    const sectionIds = ['about', 'work', 'skills', 'certs', 'contact'];
     const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[];
     const observer = new IntersectionObserver(
       entries => {
@@ -102,9 +100,9 @@ export default function Nav() {
                 style={{ fill: 'var(--ink)', animation: 'spinMono 14s linear infinite', transformOrigin: 'center' }}
               />
             </svg>
-            <span style={{ position: 'relative', zIndex: 1, color: 'var(--bg)' }}>K</span>
+            <span style={{ position: 'relative', zIndex: 1, color: 'var(--bg)' }}>R</span>
           </span>
-          <span className="nav-brand-name">Kanakaraju G</span>
+          <span className="nav-brand-name">Raju Gottumukkala</span>
         </div>
 
         {/* Links */}

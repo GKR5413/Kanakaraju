@@ -121,12 +121,12 @@ export default function About() {
               LLMs are a component.<br />MLOps is the product.
             </h3>
             <p style={{ color: 'color-mix(in oklab, currentColor 75%, transparent)', fontSize: 15 }}>
-              My work centers on the unglamorous layer between a model and a user — retrieval, observability, safety rails, and deployment. I architect Model Context Protocol servers, LangGraph multi-agent workflows, and RAG pipelines that survive contact with auditors.
+              My work centers on the unglamorous layer between a model and a user — retrieval, evaluation, observability, safety rails, and deployment. I architect Model Context Protocol servers, LangGraph multi-agent workflows, and fine-tuned RAG pipelines that survive contact with auditors.
             </p>
             <div className="about-counters">
               <AnimatedCounter target={85} suffix="%" label="Fewer hallucinations" />
-              <AnimatedCounter target={99.6} suffix="%" label="Exception capture" />
-              <AnimatedCounter target={100} suffix="%" label="Compliant traffic" />
+              <AnimatedCounter target={60} suffix="%" label="Faster onboarding" />
+              <AnimatedCounter target={95} suffix="%" label="Chargebacks cut" />
             </div>
           </motion.div>
 
@@ -150,10 +150,10 @@ export default function About() {
           >
             <span className="mono" style={{ color: 'color-mix(in oklab, var(--bg) 60%, transparent)' }}>Currently</span>
             <h3 style={{ fontSize: 26, fontFamily: 'var(--font-display)', fontWeight: 500, margin: '10px 0 12px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              Senior GenAI Engineer at Arm
+              GenAI Engineer at Arm
             </h3>
             <p style={{ color: 'color-mix(in oklab, currentColor 75%, transparent)', fontSize: 15 }}>
-              Leading the Arm MCP Server and Cloud Migration Assistant Custom Agent — helping developers move workloads from x86 to Arm using autonomous AI agents wired into Copilot, Claude Code, Kiro and Gemini CLIs.
+              Building the Arm MCP Server and the agentic retrieval stack behind it — helping developers move workloads from x86 to Arm using autonomous AI agents wired into Copilot, Claude Code, Kiro and Gemini CLIs.
             </p>
           </motion.div>
 
@@ -177,7 +177,7 @@ export default function About() {
             <span className="mono" style={{ color: 'var(--ink-faint)' }}>Domains</span>
             <h3 style={{ fontSize: 22, fontFamily: 'var(--font-display)', fontWeight: 500, margin: '0 0 12px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>Where I&apos;ve shipped</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {['Payments & fraud', 'Asset management', 'Clinical NLP / healthcare', 'Developer tooling'].map(item => (
+              {['Silicon & developer tooling', 'Payments & fraud', 'Retail supply chain', 'Search & recommendations'].map(item => (
                 <li key={item} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 14.5 }}>
                   <span style={{ width: 18, height: 2, background: 'currentColor', opacity: 0.4, flexShrink: 0 }} />
                   {item}
@@ -206,7 +206,7 @@ export default function About() {
             <span className="mono" style={{ opacity: 0.6 }}>Signature stack</span>
             <h3 style={{ fontSize: 22, fontFamily: 'var(--font-display)', fontWeight: 500, margin: '0 0 8px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>Agentic workflows</h3>
             <p style={{ fontSize: 14, color: 'color-mix(in oklab, currentColor 75%, transparent)' }}>
-              LangGraph · FastMCP · Claude · GPT-4 · Bedrock · Milvus · Pinecone · FAISS · LangSmith
+              FastMCP · LangGraph · LlamaIndex · Claude · GPT-5 · Bedrock · Milvus · FAISS · vLLM · LangSmith
             </p>
           </motion.div>
 
@@ -230,7 +230,7 @@ export default function About() {
             <span className="mono" style={{ opacity: 0.6 }}>Cloud fluency</span>
             <h3 style={{ fontSize: 22, fontFamily: 'var(--font-display)', fontWeight: 500, margin: '0 0 8px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>Multi-cloud by default</h3>
             <p style={{ fontSize: 14, color: 'color-mix(in oklab, currentColor 75%, transparent)' }}>
-              SageMaker · Bedrock · EKS · Azure ML · AKS · Databricks · Snowflake · Terraform · GitOps
+              SageMaker · Bedrock · EKS · Vertex AI · BigQuery · Kubeflow · Databricks · Snowflake · Terraform
             </p>
           </motion.div>
         </div>

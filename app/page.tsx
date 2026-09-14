@@ -12,11 +12,11 @@ export default function Home() {
     <>
       <AmbientOrbs />
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
         <About />
-        <Skills />
         <Experience />
+        <Skills />
         <Credentials />
         <Contact />
       </main>

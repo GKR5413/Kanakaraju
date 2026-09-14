@@ -99,6 +99,7 @@ export default function Credentials() {
               {EDUCATION.degree}
             </div>
             <div style={{ color: 'var(--ink-muted)', marginTop: 4 }}>{EDUCATION.institution}</div>
+            <div className="mono" style={{ color: 'var(--ink-faint)', marginTop: 8 }}>{EDUCATION.when}</div>
           </div>
           <div className="edu-gpa">
             <div className="mono" style={{ color: 'var(--ink-faint)' }}>GPA</div>

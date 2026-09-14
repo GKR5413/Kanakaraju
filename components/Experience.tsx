@@ -52,7 +52,6 @@ function ExperienceItem({ entry, index }: { entry: typeof EXPERIENCE[0]; index: 
           <span style={{ color: 'var(--ink-faint)', fontFamily: '"Fraunces", serif', fontStyle: 'italic', fontWeight: 400 }}>at</span>
           {' '}{entry.co}
         </h3>
-        <div style={{ color: 'var(--ink-muted)', fontSize: 15.5, marginBottom: 20 }}>{entry.role}</div>
 
         {/* Project card */}
         <div style={{
@@ -72,6 +71,51 @@ function ExperienceItem({ entry, index }: { entry: typeof EXPERIENCE[0]; index: 
           </p>
         </div>
 
+        {/* Shipped artifacts */}
+        {entry.links && (
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 22 }}>
+            {entry.links.map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="artifact-link"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '8px 14px',
+                  borderRadius: 999,
+                  background: 'var(--surface)',
+                  border: '1px solid var(--line)',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 11.5,
+                  color: 'var(--ink-muted)',
+                  boxShadow: 'var(--shadow-1)',
+                }}
+              >
+                <span style={{ color: 'var(--primary)', display: 'inline-flex' }}>
+                  {link.kind === 'code' ? (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 13, height: 13 }}>
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 13, height: 13 }}>
+                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                      <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" />
+                    </svg>
+                  )}
+                </span>
+                {link.label}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" style={{ width: 10, height: 10, opacity: 0.5 }}>
+                  <path d="M7 17L17 7M7 7h10v10" />
+                </svg>
+              </a>
+            ))}
+          </div>
+        )}
+
         {/* Highlights */}
         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
           {entry.highlights.map((h, hi) => (
@@ -80,6 +124,7 @@ function ExperienceItem({ entry, index }: { entry: typeof EXPERIENCE[0]; index: 
               initial={shouldReduce ? false : { opacity: 0, x: 14 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.38, delay: 0.53 + hi * 0.038, ease: [0.2, 0.8, 0.2, 1] }}
+              className="highlight-row"
               style={{
                 padding: '14px 18px 14px 44px',
                 position: 'relative',
@@ -127,7 +172,7 @@ export default function Experience() {
       <div className="container">
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 40, marginBottom: 56, flexWrap: 'wrap' }}>
           <div style={{ flex: 1, minWidth: 300 }}>
-            <div className="mono" style={{ color: 'var(--ink-faint)' }}>03 · Experience</div>
+            <div className="mono" style={{ color: 'var(--ink-faint)' }}>02 · Experience</div>
             <motion.h2
               initial={{ opacity: 0, y: 38 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -147,13 +192,13 @@ export default function Experience() {
             transition={{ duration: 0.52, delay: 0.1 }}
             style={{ maxWidth: 380, color: 'var(--ink-faint)', fontSize: 15.5 }}
           >
-            Four companies. Financial services, payments, healthcare, silicon. Measurable outcomes at every stop.
+            Three companies. Silicon, payments &amp; fraud, retail supply chain at scale. Measurable outcomes at every stop.
           </motion.p>
         </div>
 
         <div>
           {EXPERIENCE.map((entry, i) => (
-            <ExperienceItem key={entry.co} entry={entry} index={i} />
+            <ExperienceItem key={`${entry.co}-${entry.when}`} entry={entry} index={i} />
           ))}
           <div style={{ borderBottom: '1px solid var(--line)' }} />
         </div>

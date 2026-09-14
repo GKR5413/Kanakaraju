@@ -5,8 +5,8 @@ import { motion, useReducedMotion } from 'framer-motion';
 const CONTACT_METHODS = [
   {
     label: 'Email',
-    val: 'rajugottumukkala96@gmail.com',
-    href: 'mailto:rajugottumukkala96@gmail.com',
+    val: 'gkrswe@gmail.com',
+    href: 'mailto:gkrswe@gmail.com',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 16, height: 16 }}>
         <rect x="2" y="4" width="20" height="16" rx="3" />
@@ -16,8 +16,8 @@ const CONTACT_METHODS = [
   },
   {
     label: 'Phone',
-    val: '+1 (816) 352-4975',
-    href: 'tel:+18163524975',
+    val: '+1 (470) 242-1412',
+    href: 'tel:+14702421412',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 16, height: 16 }}>
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -26,8 +26,8 @@ const CONTACT_METHODS = [
   },
   {
     label: 'Network',
-    val: 'linkedin.com/in/gkr5413',
-    href: 'https://www.linkedin.com/in/gkr5413',
+    val: 'linkedin.com/in/gkrswe',
+    href: 'https://www.linkedin.com/in/gkrswe',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 16, height: 16 }}>
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -103,7 +103,7 @@ export default function Contact() {
           transition={{ duration: 0.62, delay: 0.38, ease: [0.2, 0.8, 0.2, 1] }}
           style={{ maxWidth: 600, color: 'var(--ink-muted)', fontSize: 18 }}
         >
-          I&apos;m open to senior roles and advisory engagements in applied GenAI, MLOps, and agentic systems — especially where compliance, observability, and scale are non-negotiable.
+          Based in San Francisco and open to relocation. I&apos;m open to AI/ML engineering roles in applied GenAI, agentic systems, and MLOps — especially where compliance, evaluation, and scale are non-negotiable.
         </motion.p>
 
         {/* Contact methods */}
@@ -159,7 +159,7 @@ export default function Contact() {
 
         {/* Footer */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 64, paddingTop: 32, borderTop: '1px solid var(--line)', color: 'var(--ink-faint)', fontSize: 13, flexWrap: 'wrap', gap: 12 }}>
-          <div>© 2026 Kanakaraju G — Senior GenAI Engineer</div>
+          <div>© 2026 Raju Gottumukkala — AI/ML Engineer</div>
           <div className="mono">Crafted with intention.</div>
         </div>
       </div>

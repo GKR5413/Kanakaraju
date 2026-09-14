@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { TECH_MARQUEE } from '@/data/skills';
 import { LOGO_MARQUEE } from '@/data/experience';
 import Image from 'next/image';
+import HeroConsole from './HeroConsole';
 
 const H1_LINES = [
   { text: 'Engineering', italic: false },
@@ -39,8 +40,8 @@ export default function Hero() {
   const shouldReduce = useReducedMotion();
 
   const metaChips = [
-    { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: 10, height: 10 }}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>, label: '~8 years experience' },
-    { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: 10, height: 10 }}><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z" /></svg>, label: '3× Cloud AI Certified (AWS GenAI · AWS ML · Azure AI)' },
+    { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: 10, height: 10 }}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>, label: '6+ years experience' },
+    { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: 10, height: 10 }}><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z" /></svg>, label: '2× Cloud AI Certified (AWS GenAI Pro · Azure AI)' },
     { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: 10, height: 10 }}><path d="M4 6h16M4 12h16M4 18h10" /></svg>, label: 'MSCS · UMKC' },
   ];
 
@@ -73,7 +74,7 @@ export default function Hero() {
             <span style={{ position: 'relative', width: 8, height: 8, borderRadius: '50%', background: 'oklch(70% 0.17 145)', flexShrink: 0 }}>
               <span style={{ content: '', position: 'absolute', inset: -2, borderRadius: '50%', background: 'oklch(70% 0.17 145 / 0.4)', animation: 'radar 2s ease-out infinite' }} />
             </span>
-            <span className="mono">Available · Austin, TX</span>
+            <span className="mono">Available · San Francisco, CA</span>
           </motion.div>
 
           {/* H1 */}
@@ -119,7 +120,7 @@ export default function Hero() {
             transition={{ duration: 0.65, delay: 0.92, ease: [0.2, 0.8, 0.2, 1] }}
             style={{ maxWidth: 540, fontSize: 'clamp(17px, 1.3vw, 20px)', color: 'var(--ink-muted)', marginBottom: 36, lineHeight: 1.5 }}
           >
-            I&apos;m Kanakaraju — a Senior GenAI Engineer with ~8 years across financial services, payments, e-commerce, and healthcare. I design and deploy production-grade LLM systems, agentic AI workflows, and RAG pipelines for regulated enterprise environments.
+            I&apos;m Raju — an AI/ML Engineer with over 6 years across silicon, payments, and retail at scale. I build production LLM systems, agentic AI workflows, MCP servers, and RAG pipelines — and the evaluation and MLOps machinery that keeps them honest.
           </motion.p>
 
           {/* Meta chips */}
@@ -186,8 +187,15 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right visual placeholder — empty as in original */}
-        <div className="hero-grid-right" />
+        {/* Right visual */}
+        <motion.div
+          className="hero-grid-right"
+          initial={shouldReduce ? false : { opacity: 0, y: 28, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.85, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <HeroConsole />
+        </motion.div>
       </div>
 
       {/* Marquees */}
@@ -226,7 +234,7 @@ export default function Hero() {
           style={{ marginTop: 14, padding: '28px 0', position: 'relative' }}
         >
           <span style={{ display: 'block', textAlign: 'center', color: 'var(--ink-faint)', fontFamily: 'var(--font-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.18em', marginBottom: 18 }}>
-            Trusted across regulated enterprise — past &amp; present
+            Shipped at — past &amp; present
           </span>
           <div
             style={{
@@ -238,7 +246,7 @@ export default function Hero() {
             }}
           >
             <div className="marquee-track marquee-track--paused-on-hover" style={{ gap: 72, alignItems: 'center', animationDuration: '28s' }}>
-            {[...LOGO_MARQUEE, ...LOGO_MARQUEE].map((l, i) => (
+            {Array.from({ length: 6 }, () => LOGO_MARQUEE).flat().map((l, i) => (
               <span
                 key={i}
                 title={l.name}
