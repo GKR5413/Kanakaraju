@@ -7,6 +7,7 @@
 }
 
 :root {
+  --theme-swap: 280ms;
   --font-display: "Bricolage Grotesque", ui-sans-serif, sans-serif;
   --font-body: "Inter", ui-sans-serif, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -518,40 +519,46 @@ html { scroll-behavior: smooth; }
 }
 
 /* ─── Theme switching ───
-   Colors live in custom properties, so flipping data-theme repaints every
-   element at once. The problem was that each element reached its new color on
-   its own clock: body faded over .8s, chips over .25s, links over .35s, and
-   roughly twenty surfaces had no transition at all and snapped instantly — so
-   the page changed in visible waves.
+   Colors live in custom properties, so flipping data-theme repaints the whole
+   page. Transitioning every element to get them in sync does work, but this
+   page has 1309 nodes — 85 with box-shadow and 8 with gradient backgrounds —
+   and animating those properties across all of them drops frames badly
+   (measured: 9 gaps over 20ms, worst 47ms) and washes out mid-crossfade.
 
-   This class is applied only for the duration of a toggle and forces one
-   identical transition onto everything, so the whole page crosses over
-   together. Only color-ish properties are listed: transitioning transform or
-   opacity here would fight the nav knob and the framer-motion animations. */
+   Instead let the compositor do it: startViewTransition snapshots the page
+   before and after, and cross-fades two GPU layers. Cost is independent of
+   node count. Browsers without the API just swap instantly, which is not
+   janky — only abrupt. */
 
-:root { --theme-swap: 260ms; }
+::view-transition-old(root),
+::view-transition-new(root) {
+  /* Override the default cross-fade: both halves being semi-transparent at
+     once is what makes the midpoint look washed out and "see-through". */
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) { z-index: 0; }
+::view-transition-new(root) {
+  z-index: 1;
+  animation: themeFade var(--theme-swap) var(--ease-out);
+}
 
-html.theme-transition,
-html.theme-transition *,
-html.theme-transition *::before,
-html.theme-transition *::after {
-  transition:
-    background-color var(--theme-swap) var(--ease-out),
-    background-image  var(--theme-swap) var(--ease-out),
-    border-color      var(--theme-swap) var(--ease-out),
-    color             var(--theme-swap) var(--ease-out),
-    fill              var(--theme-swap) var(--ease-out),
-    stroke            var(--theme-swap) var(--ease-out),
-    box-shadow        var(--theme-swap) var(--ease-out),
-    outline-color     var(--theme-swap) var(--ease-out) !important;
-  transition-delay: 0s !important;
+@keyframes themeFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html.theme-transition,
-  html.theme-transition *,
-  html.theme-transition *::before,
-  html.theme-transition *::after {
-    transition: none !important;
-  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation: none; }
+}
+
+/* While the cross-fade runs, the page underneath is only a snapshot, so the
+   marquees, spin and pulse loops are invisible work competing with it for
+   compositor time. Pausing costs one style recalc at each end and nothing per
+   frame; animations resume where they left off, so nothing jumps. */
+html.theme-swapping *,
+html.theme-swapping *::before,
+html.theme-swapping *::after {
+  animation-play-state: paused !important;
 }

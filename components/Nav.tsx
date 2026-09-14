@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { motion } from 'framer-motion';
 
-/** Keep in sync with --theme-swap in globals.css. */
-const THEME_SWAP_MS = 260;
+type ViewTransitionDocument = Document & {
+  startViewTransition?: (cb: () => void) => { finished: Promise<void> };
+};
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -21,10 +23,7 @@ export default function Nav() {
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const navLinksRef = useRef<HTMLDivElement>(null);
   const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 });
-  const themeTimer = useRef<number | undefined>(undefined);
 
-  // Don't leave the global transition class behind if we unmount mid-swap.
-  useEffect(() => () => window.clearTimeout(themeTimer.current), []);
 
   useEffect(() => {
     const saved = localStorage.getItem('theme') ?? 'light';
@@ -36,18 +35,28 @@ export default function Nav() {
     const next = isDark ? 'light' : 'dark';
     const root = document.documentElement;
 
-    // Arm one shared transition so every element crosses over on the same
-    // clock, then drop it so it never interferes with hover or scroll states.
-    root.classList.add('theme-transition');
-    void root.offsetWidth; // flush the class before the colors change
-    window.clearTimeout(themeTimer.current);
-    themeTimer.current = window.setTimeout(() => {
-      root.classList.remove('theme-transition');
-    }, THEME_SWAP_MS);
+    const apply = () => {
+      // flushSync so the knob's React state lands inside the same snapshot as
+      // the colour change, rather than animating a frame behind it.
+      flushSync(() => {
+        root.dataset.theme = next;
+        setIsDark(!isDark);
+      });
+      localStorage.setItem('theme', next);
+    };
 
-    root.dataset.theme = next;
-    localStorage.setItem('theme', next);
-    setIsDark(!isDark);
+    const doc = document as ViewTransitionDocument;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // The compositor cross-fades two snapshots; no per-element transitions,
+    // so cost doesn't scale with how much is on screen.
+    if (reduce || typeof doc.startViewTransition !== 'function') {
+      apply();
+      return;
+    }
+    root.classList.add('theme-swapping');
+    const transition = doc.startViewTransition(apply);
+    transition.finished.finally(() => root.classList.remove('theme-swapping'));
   };
 
   const movePill = (idx: number | null) => {
