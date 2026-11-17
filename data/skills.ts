@@ -44,6 +44,17 @@ export const SKILLS: SkillCategory[] = [
       { t: "vLLM", f: 1 },
       { t: "Inference Optimization" },
       { t: "Token Usage Optimization" },
+      { t: "Gemini", f: 1 },
+      { t: "Supervised Fine-Tuning (SFT)", f: 1 },
+      { t: "PEFT", f: 1 },
+      { t: "Instruction Tuning" },
+      { t: "PyTorch" },
+      { t: "Continuous Batching" },
+      { t: "Model Routing", f: 1 },
+      { t: "GPU Serving (H100)", f: 1 },
+      { t: "Small Language Models" },
+      { t: "Anthropic SDK" },
+      { t: "OpenAI SDK" },
     ],
   },
   {
@@ -66,6 +77,12 @@ export const SKILLS: SkillCategory[] = [
       { t: "Hybrid BM25 + Dense" },
       { t: "Chain-of-Thought" },
       { t: "Neo4j" },
+      { t: "Agentic AI", f: 1 },
+      { t: "Function Calling" },
+      { t: "ReAct" },
+      { t: "Context Window Management", f: 1 },
+      { t: "Prompt Engineering" },
+      { t: "Multi-Agent Systems", f: 1 },
     ],
   },
   {
@@ -81,6 +98,13 @@ export const SKILLS: SkillCategory[] = [
       { t: "Semantic Embeddings", f: 1 },
       { t: "Vector Indexing" },
       { t: "Contrastive Fine-Tuning" },
+      { t: "pgvector", f: 1 },
+      { t: "PostgreSQL", f: 1 },
+      { t: "MongoDB" },
+      { t: "Hybrid Search" },
+      { t: "Reranking" },
+      { t: "text-embedding-3-large" },
+      { t: "BGE / E5" },
     ],
   },
   {
@@ -98,6 +122,10 @@ export const SKILLS: SkillCategory[] = [
       { t: "Prometheus" },
       { t: "AWS CloudWatch" },
       { t: "SLOs / SLIs" },
+      { t: "LLM-as-a-Judge", f: 1 },
+      { t: "Golden Datasets" },
+      { t: "Groundedness & Citation Scoring" },
+      { t: "Grafana" },
     ],
   },
   {
@@ -155,6 +183,8 @@ export const SKILLS: SkillCategory[] = [
       { t: "Gemini CLI" },
       { t: "AI Code Review" },
       { t: "Security Screening" },
+      { t: "Codex" },
+      { t: "Custom MCP Integrations", f: 1 },
     ],
   },
   {
@@ -169,6 +199,7 @@ export const SKILLS: SkillCategory[] = [
       { t: "Go" },
       { t: "SQL", f: 1 },
       { t: "Bash" },
+      { t: "C++", f: 1 },
     ],
   },
   {
@@ -238,7 +269,8 @@ export const SKILLS: SkillCategory[] = [
       { t: "IAM" },
       { t: "CloudWatch" },
       { t: "AWS Copilot CLI" },
-      { t: "S3" },
+      { t: "Amazon Textract", f: 1 },
+      { t: "Amazon S3" },
     ],
   },
   {
@@ -281,6 +313,8 @@ export const SKILLS: SkillCategory[] = [
       { t: "Argo CD" },
       { t: "CI/CD Pipelines" },
       { t: "Prometheus" },
+      { t: "Grafana" },
+      { t: "Observability" },
     ],
   },
   {
@@ -299,6 +333,11 @@ export const SKILLS: SkillCategory[] = [
       { t: "PSD2 SCA" },
       { t: "3-D Secure" },
       { t: "SHAP Reason Codes" },
+      { t: "Guardrails", f: 1 },
+      { t: "Prompt Injection Defense" },
+      { t: "Role-Based Access Control", f: 1 },
+      { t: "PII Masking" },
+      { t: "Audit Logging" },
     ],
   },
   {
@@ -321,7 +360,8 @@ export const SKILLS: SkillCategory[] = [
 ];
 
 export const TECH_MARQUEE = [
-  "Python", "FastMCP", "MCP", "LangGraph", "LangChain", "LlamaIndex", "Milvus",
+  "Python", "C++", "MCP Tool Calling", "pgvector", "PostgreSQL", "Gemini",
+  "Amazon Textract", "PEFT", "H100", "FastMCP", "MCP", "LangGraph", "LangChain", "LlamaIndex", "Milvus",
   "FAISS", "Pinecone", "vLLM", "LoRA", "QLoRA", "Llama 3", "GPT-5", "Claude",
   "Amazon Bedrock", "CrewAI", "AutoGen", "LangSmith", "Neo4j", "SageMaker",
   "Vertex AI", "BigQuery", "Snowflake", "Databricks", "PyTorch", "TensorFlow",

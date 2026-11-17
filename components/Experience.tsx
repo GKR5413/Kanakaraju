@@ -192,7 +192,7 @@ export default function Experience() {
             transition={{ duration: 0.52, delay: 0.1 }}
             style={{ maxWidth: 380, color: 'var(--ink-faint)', fontSize: 15.5 }}
           >
-            Three companies. Silicon, payments &amp; fraud, retail supply chain at scale. Measurable outcomes at every stop.
+            Four companies. Tax &amp; audit, silicon, payments &amp; fraud, retail supply chain at scale. Measurable outcomes at every stop.
           </motion.p>
         </div>
 

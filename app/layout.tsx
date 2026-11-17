@@ -44,16 +44,16 @@ export const viewport: Viewport = {
 };
 
 const SITE = "https://rajugottumukkala.com";
-const TITLE = "Raju Gottumukkala — AI/ML Engineer";
+const TITLE = "Raju Gottumukkala — Senior Generative AI Engineer";
 const DESCRIPTION =
-  "AI/ML Engineer with over 6 years across silicon, payments, and retail at scale. Building production LLM systems, agentic AI workflows, MCP servers, and RAG pipelines.";
+  "Senior Generative AI Engineer building production LLM systems — MCP and LLM tool calling, agentic systems, and RAG in production — across tax & audit, silicon, payments, and retail.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: TITLE,
   description: DESCRIPTION,
   keywords: [
-    "AI Engineer", "ML Engineer", "GenAI", "MCP", "Model Context Protocol",
+    "Senior Generative AI Engineer", "AI Engineer", "GenAI", "MCP", "LLM Tool Calling", "Agentic AI", "Model Context Protocol",
     "RAG", "LangGraph", "LLM fine-tuning", "MLOps", "Raju Gottumukkala",
   ],
   authors: [{ name: "Raju Gottumukkala", url: SITE }],
@@ -80,13 +80,13 @@ const JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Raju Gottumukkala",
-  jobTitle: "AI/ML Engineer",
+  jobTitle: "Senior Generative AI Engineer",
   url: SITE,
-  email: "mailto:gkrswe@gmail.com",
-  telephone: "+1-470-242-1412",
+  email: "mailto:kanakarajuswe@gmail.com",
+  telephone: "+1-816-352-4975",
   address: { "@type": "PostalAddress", addressLocality: "San Francisco", addressRegion: "CA", addressCountry: "US" },
-  sameAs: ["https://www.linkedin.com/in/gkrswe", "https://github.com/gkr5413"],
-  worksFor: { "@type": "Organization", name: "Arm" },
+  sameAs: ["https://www.linkedin.com/in/kanakarajuswe", "https://github.com/gkr5413"],
+  worksFor: { "@type": "Organization", name: "RSM US LLP" },
   alumniOf: { "@type": "CollegeOrUniversity", name: "University of Missouri — Kansas City" },
   knowsAbout: [
     "Generative AI", "Model Context Protocol", "Retrieval-Augmented Generation",

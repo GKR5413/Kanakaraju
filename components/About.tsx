@@ -150,10 +150,10 @@ export default function About() {
           >
             <span className="mono" style={{ color: 'color-mix(in oklab, var(--bg) 60%, transparent)' }}>Currently</span>
             <h3 style={{ fontSize: 26, fontFamily: 'var(--font-display)', fontWeight: 500, margin: '10px 0 12px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-              GenAI Engineer at Arm
+              Senior GenAI Engineer at RSM
             </h3>
             <p style={{ color: 'color-mix(in oklab, currentColor 75%, transparent)', fontSize: 15 }}>
-              Building the Arm MCP Server and the agentic retrieval stack behind it — helping developers move workloads from x86 to Arm using autonomous AI agents wired into Copilot, Claude Code, Kiro and Gemini CLIs.
+              Leading 2 engineers as sole architect of the MCP and LLM tool calling layer for Project Phoenix — RSM&apos;s internal AI platform POC giving 15K clients and stakeholders natural language access to tax filings, ledgers and invoices.
             </p>
           </motion.div>
 
@@ -177,7 +177,7 @@ export default function About() {
             <span className="mono" style={{ color: 'var(--ink-faint)' }}>Domains</span>
             <h3 style={{ fontSize: 22, fontFamily: 'var(--font-display)', fontWeight: 500, margin: '0 0 12px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>Where I&apos;ve shipped</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {['Silicon & developer tooling', 'Payments & fraud', 'Retail supply chain', 'Search & recommendations'].map(item => (
+              {['Tax, audit & financial documents', 'Silicon & developer tooling', 'Payments & fraud', 'Retail supply chain & search'].map(item => (
                 <li key={item} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 14.5 }}>
                   <span style={{ width: 18, height: 2, background: 'currentColor', opacity: 0.4, flexShrink: 0 }} />
                   {item}
@@ -206,7 +206,7 @@ export default function About() {
             <span className="mono" style={{ opacity: 0.6 }}>Signature stack</span>
             <h3 style={{ fontSize: 22, fontFamily: 'var(--font-display)', fontWeight: 500, margin: '0 0 8px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>Agentic workflows</h3>
             <p style={{ fontSize: 14, color: 'color-mix(in oklab, currentColor 75%, transparent)' }}>
-              FastMCP · LangGraph · LlamaIndex · Claude · GPT-5 · Bedrock · Milvus · FAISS · vLLM · LangSmith
+              FastMCP · LangGraph · LlamaIndex · Claude · Gemini · GPT-5 · pgvector · Milvus · vLLM · PEFT · LangSmith
             </p>
           </motion.div>
 
@@ -230,7 +230,7 @@ export default function About() {
             <span className="mono" style={{ opacity: 0.6 }}>Cloud fluency</span>
             <h3 style={{ fontSize: 22, fontFamily: 'var(--font-display)', fontWeight: 500, margin: '0 0 8px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>Multi-cloud by default</h3>
             <p style={{ fontSize: 14, color: 'color-mix(in oklab, currentColor 75%, transparent)' }}>
-              SageMaker · Bedrock · EKS · Vertex AI · BigQuery · Kubeflow · Databricks · Snowflake · Terraform
+              Bedrock · Textract · ECS · EKS · Azure OpenAI · Vertex AI · BigQuery · Databricks · Snowflake · Terraform
             </p>
           </motion.div>
         </div>

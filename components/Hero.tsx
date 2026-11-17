@@ -40,7 +40,7 @@ export default function Hero() {
   const shouldReduce = useReducedMotion();
 
   const metaChips = [
-    { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: 10, height: 10 }}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>, label: '6+ years experience' },
+    { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: 10, height: 10 }}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>, label: '6 years production ML' },
     { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: 10, height: 10 }}><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z" /></svg>, label: '2× Cloud AI Certified (AWS GenAI Pro · Azure AI)' },
     { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ width: 10, height: 10 }}><path d="M4 6h16M4 12h16M4 18h10" /></svg>, label: 'MSCS · UMKC' },
   ];
@@ -120,7 +120,7 @@ export default function Hero() {
             transition={{ duration: 0.65, delay: 0.92, ease: [0.2, 0.8, 0.2, 1] }}
             style={{ maxWidth: 540, fontSize: 'clamp(17px, 1.3vw, 20px)', color: 'var(--ink-muted)', marginBottom: 36, lineHeight: 1.5 }}
           >
-            I&apos;m Raju — an AI/ML Engineer with over 6 years across silicon, payments, and retail at scale. I build production LLM systems, agentic AI workflows, MCP servers, and RAG pipelines — and the evaluation and MLOps machinery that keeps them honest.
+            I&apos;m Raju — a Senior Generative AI Engineer who builds production LLM systems. At RSM I lead the MCP and LLM tool calling layer for Project Phoenix; at Arm I led the MCP server, RAG and coding agents serving 35,000 developers at ~1M calls a month. Six years of production ML underneath it — with evaluation gating every release.
           </motion.p>
 
           {/* Meta chips */}

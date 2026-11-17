@@ -36,7 +36,7 @@ export const CERTS: CertEntry[] = [
 export const EDUCATION: EducationEntry = {
   degree: "Master of Science, Computer Science",
   institution: "University of Missouri — Kansas City",
-  when: "Aug 2023 — May 2025",
+  when: "May 2025",
   gpa: "3.82",
   gpaMax: "/4.0",
 };

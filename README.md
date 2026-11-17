@@ -1,6 +1,6 @@
 # rajugottumukkala.com
 
-Personal site for Raju Gottumukkala — AI/ML Engineer.
+Personal site for Raju Gottumukkala — Senior Generative AI Engineer.
 
 Next.js App Router, statically exported and served from GitHub Pages at
 [rajugottumukkala.com](https://rajugottumukkala.com).
